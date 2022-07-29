@@ -1,24 +1,22 @@
-import React from "react";
-import Header from "./Components/Header/Header";
-import List from "./Components/List/List";
-import Map from "./Components/Map/Map";
-import { CssBaseline, Grid } from "@material-ui/core";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import Home from "./pages/Home/Home";
+import List from "./pages/List/List";
+import Hotel from "./pages/Hotel/Hotel";
 
-const App = () => {
+function App() {
   return (
-    <>
-      <CssBaseline />
-      <Header />
-  <Grid container spacing={3} style={{ width: "100%" }}>
-         <Grid item xs={12} md={4}>
-            <List />
-         </Grid> 
-        
-        <Grid item xs={12} md={8}> 
-          <Map />
-       </Grid>
-    </Grid>
-    </>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="hotels" element={<List />} />
+      <Route path="hotels/:id" element={<Hotel />} />
+    </Routes>
+  </BrowserRouter>
   );
-};
+}
+
 export default App;
